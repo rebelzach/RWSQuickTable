@@ -42,14 +42,21 @@
   return sections_;
 }
 
+- (void)setSections:(NSArray *)sections
+{
+  [sections_ release];
+  sections_ = [sections retain];
+  [self reloadData];
+}
+
 - (void)setDelegate:(id<UITableViewDelegate>)delegate
 {
-  NSAssert(0, @"This table is its own delegate");
+  return;
 }
 
 - (void)setDataSource:(id<UITableViewDataSource>)dataSource
 {
-  NSAssert(0, @"This table is its own datasource");
+  return;
 }
 
 #pragma mark -
@@ -83,7 +90,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
 {
-  NSString *footer = [[[self sections] objectAtIndex:section] header];
+  NSString *footer = [[[self sections] objectAtIndex:section] footer];
   if (footer) {
     return footer;
   }

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RWSTableSection : UITableView {
+@interface RWSTableSection : NSObject {
  @private
   NSArray *rows_;
   NSString *footer_;
