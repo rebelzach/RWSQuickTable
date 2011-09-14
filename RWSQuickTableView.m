@@ -101,6 +101,7 @@
 {
   NSInteger section = [indexPath section];
   NSInteger row = [indexPath row];
+  [[[[[self sections] objectAtIndex:section] rows] objectAtIndex:row] setIndexPath:indexPath];
   return [[[[self sections] objectAtIndex:section] rows] objectAtIndex:row];
   return nil;
 }

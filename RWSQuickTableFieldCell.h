@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "RWSQuickTableViewCell.h"
+#import "RWSSmartTextField.h"
 
 @interface RWSQuickTableFieldCell : RWSQuickTableViewCell {
-  UITextField *textField_;
+  RWSSmartTextField *textField_;
 }
 
-@property (nonatomic, retain) UITextField *textField;
+@property (nonatomic, retain) RWSSmartTextField *textField;
 
 @end

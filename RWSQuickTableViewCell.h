@@ -12,11 +12,15 @@
   id target_;
   SEL action_;
   float height_;
+  id data_;
+  NSIndexPath *indexPath_;
 }
 
 @property (nonatomic, readonly) id target;
 @property (nonatomic, readonly) SEL action;
 @property (nonatomic, assign) float height;
+@property (nonatomic, retain) id data;
+@property (nonatomic, retain) NSIndexPath *indexPath;
 
 + (id)cellWithTitle:(NSString *)title;
 + (id)cellWithStyle:(UITableViewCellStyle)style title:(NSString *)string;

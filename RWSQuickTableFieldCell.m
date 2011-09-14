@@ -23,7 +23,7 @@
   self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
   if (self) {
     CGRect textRect = CGRectMake(90, 5, 195, 34);
-    UITextField *field = [[[UITextField alloc] initWithFrame:textRect] autorelease];
+    RWSSmartTextField *field = [[[RWSSmartTextField alloc] initWithFrame:textRect] autorelease];
     [self setTextField:field];
     [field setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
     [[self textLabel] setTextAlignment:UITextAlignmentRight];

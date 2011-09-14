@@ -10,6 +10,7 @@
 #import "RWSTableSection.h"
 #import "RWSQuickTableViewCell.h"
 #import "RWSQuickTableFieldCell.h"
+#import "RWSSmartTextField.h"
 
 @interface RWSQuickTableView : UITableView <UITableViewDelegate, UITableViewDataSource> {
   NSMutableArray *sections_;

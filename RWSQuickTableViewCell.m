@@ -39,8 +39,13 @@
 
 - (void)dealloc 
 {
+  RWSRelease(data_);
+  RWSRelease(indexPath_);
   [super dealloc];
 }
+
+@synthesize indexPath = indexPath_;
+@synthesize data = data_;
 
 @synthesize target = target_;
 @synthesize action = action_;
@@ -56,6 +61,9 @@
   NSMethodSignature *signature = [[self target] methodSignatureForSelector:[self action]];
   if ([signature numberOfArguments] == 2) {
     [[self target] performSelector:[self action]];
+  }
+  if ([signature numberOfArguments] == 3) {
+    [[self target] performSelector:[self action] withObject:self];
   }
 }
 
