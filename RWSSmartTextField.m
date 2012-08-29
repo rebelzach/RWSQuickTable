@@ -16,7 +16,7 @@
   self = [super initWithFrame:frame];
   if (self) {
     self.returnKeyType = UIReturnKeyDone;
-    [self setHelperDelegate:[[[RWSSmartTextFieldDelegate alloc] init] autorelease]];
+    [self setHelperDelegate:[[RWSSmartTextFieldDelegate alloc] init]];
     [self setDelegate:self.helperDelegate];
   }
   return self;
@@ -24,12 +24,6 @@
 
 @synthesize helperDelegate = helperDelegate_;
 
-- (void)dealloc
-{
-  RWSRelease(helperDelegate_);
-  RWSDestroyingSelf();
-  [super dealloc];
-}
 
 - (void)setReturnShouldDismiss:(BOOL)returnShouldDismiss
 {

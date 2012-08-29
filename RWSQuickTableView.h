@@ -13,10 +13,15 @@
 #import "RWSSmartTextField.h"
 
 @interface RWSQuickTableView : UITableView <UITableViewDelegate, UITableViewDataSource> {
-  NSMutableArray *sections_;
+  BOOL keyboardAware_;
+  NSArray *sections_;
+  struct {
+    unsigned displayingKeyboard : 1;
+  } flags;
 }
 
-@property (nonatomic, retain) NSArray *sections;
+@property (nonatomic, assign, getter = isKeyboardAware) BOOL keyboardAware;
+@property (nonatomic, strong) NSArray *sections;
 
 + (id)tableViewWithFrame:(CGRect)frame style:(UITableViewStyle)style;
 

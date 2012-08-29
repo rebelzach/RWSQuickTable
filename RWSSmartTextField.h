@@ -14,7 +14,7 @@
   RWSSmartTextFieldDelegate *helperDelegate_;
 
 }
-@property (nonatomic, retain) RWSSmartTextFieldDelegate *helperDelegate;
+@property (nonatomic, strong) RWSSmartTextFieldDelegate *helperDelegate;
 @property (nonatomic, assign) BOOL returnShouldDismiss;
 
 @end

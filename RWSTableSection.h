@@ -15,9 +15,9 @@
   NSString *header_;
 }
 
-@property (nonatomic, retain) NSString *footer;
-@property (nonatomic, retain) NSString *header;
-@property (nonatomic, retain) NSArray *rows;
+@property (nonatomic, strong) NSString *footer;
+@property (nonatomic, strong) NSString *header;
+@property (nonatomic, strong) NSArray *rows;
 
 + (id)section;
 

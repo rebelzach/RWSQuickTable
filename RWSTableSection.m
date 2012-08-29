@@ -12,7 +12,7 @@
 
 + (id)section
 {
-  return [[[RWSTableSection alloc] init] autorelease];
+  return [[RWSTableSection alloc] init];
 }
 
 - (id)init
@@ -24,13 +24,6 @@
     return self;
 }
 
-- (void)dealloc 
-{
-  RWSRelease(footer_);
-  RWSRelease(header_);
-  RWSRelease(rows_);
-  [super dealloc];
-}
 
 @synthesize footer = footer_;
 @synthesize header = header_;

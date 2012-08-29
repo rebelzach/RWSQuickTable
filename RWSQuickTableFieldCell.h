@@ -14,6 +14,6 @@
   RWSSmartTextField *textField_;
 }
 
-@property (nonatomic, retain) RWSSmartTextField *textField;
+@property (nonatomic, strong) RWSSmartTextField *textField;
 
 @end

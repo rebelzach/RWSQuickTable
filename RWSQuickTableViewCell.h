@@ -8,24 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RWSQuickTableViewCell : UITableViewCell {
-  id target_;
-  SEL action_;
-  float height_;
-  id data_;
-  NSIndexPath *indexPath_;
-}
+@interface RWSQuickTableViewCell : UITableViewCell
 
-@property (nonatomic, readonly) id target;
-@property (nonatomic, readonly) SEL action;
 @property (nonatomic, assign) float height;
-@property (nonatomic, retain) id data;
-@property (nonatomic, retain) NSIndexPath *indexPath;
-
+@property (nonatomic, strong) id data;
+@property (nonatomic, strong) NSIndexPath *indexPath;
+@property (nonatomic, copy) void (^triggerBlock)(RWSQuickTableViewCell *selectedCell);
 + (id)cellWithTitle:(NSString *)title;
 + (id)cellWithStyle:(UITableViewCellStyle)style title:(NSString *)string;
 
-- (void)setTarget:(id)target action:(SEL)action;
 - (void)trigger;
 
 @end

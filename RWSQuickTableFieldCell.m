@@ -12,8 +12,8 @@
 
 + (id)cellWithTitle:(NSString *)title
 {
-  RWSQuickTableFieldCell *cell = [[[RWSQuickTableFieldCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                                              reuseIdentifier:nil] autorelease];
+  RWSQuickTableFieldCell *cell = [[RWSQuickTableFieldCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                                              reuseIdentifier:nil];
   [[cell textLabel] setText:title];
   return cell;
 }
@@ -23,7 +23,7 @@
   self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
   if (self) {
     CGRect textRect = CGRectMake(90, 5, 195, 34);
-    RWSSmartTextField *field = [[[RWSSmartTextField alloc] initWithFrame:textRect] autorelease];
+    RWSSmartTextField *field = [[RWSSmartTextField alloc] initWithFrame:textRect];
     [self setTextField:field];
     [field setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
     [[self textLabel] setTextAlignment:UITextAlignmentRight];
@@ -32,23 +32,27 @@
     [self setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     //Setup a default actions
-    [self setTarget:self action:@selector(_genericSelectionHandler)];
+    [self setTriggerBlock:^(id selectedCell) {
+      [selectedCell _genericSelectionHandler];
+    }];
   }
   return self;
 }
 
-- (void)dealloc 
-{
-  RWSRelease(textField_);
-  [super dealloc];
-}
 
 @synthesize textField = textField_;
 
 - (void)layoutSubviews
 {
   [super layoutSubviews];
-  //[[self textLabel] setBackgroundColor:[UIColor blueColor]];
+  
+  // Position debugging
+# if 0
+  [[self textField] setBackgroundColor:[UIColor blueColor]];
+# endif
+  
+  CGRect textFieldFrame = UIEdgeInsetsInsetRect(self.bounds, UIEdgeInsetsMake(4, 90, 6, 30));
+  [[self textField] setFrame:textFieldFrame];
   [[self textLabel] setFrame:CGRectMake(10, 4, 75, 34)];
 }
 
